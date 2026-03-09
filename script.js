@@ -1,8 +1,7 @@
 const DIALOG_REF = document.getElementById("#DialogPhotoOverlay");
 let foldernames = [];
-
-let photos_thumbnail_container_per_folder = "";
 let photos_array = [];
+let photo_overlay = document.getElementById("#PhotoOverlay");
 
 /** 
  * Initialer Aufruf beim Starten der Seite
@@ -13,47 +12,15 @@ function init() {
 
     getPhotofoldername();
     getAllPhotoData();
-    // renderPhotoThumbnail();
-
-    
-    
+    renderPhotoThumbnail();
 }
-
-function openDialogPhotoOverlay(photo_src, photo_alt, photo_description, photo_copyright, photo_nr) {
-    DIALOG_REF.showModal();
-    renderPhotoOverlay(photo_src, photo_alt, photo_description, photo_copyright, photo_nr);
-}
-
-function renderPhotoOverlay(photo_src, photo_alt, photo_description, photo_copyright, photo_nr) {
-    let photo_overlay = document.getElementById("#PhotoOverlay");
-    photo_overlay.innerHTML = "";
-    photo_overlay.innerHTML = displayPhotoOverlay(photo_src, photo_alt, photo_description, photo_copyright, photo_nr);
-}
-
-function closeDialogPhotoOverlay() {
-    DIALOG_REF.close();
-}
-
-// function renderPhotoThumbnail(params) {
-//     for (let i = 0; i < photos_array.length; i++) {
-
-//         const element = array[i];
-        
-//     }
-// }
 
 /** 
  * Photofoldername über ID erhalten
- * Ich glaube 
  */
 function getPhotofoldername() {
     const FOLDER_LIST = document.getElementsByClassName("ImageContainerPhotoGallery");
     for (let i = 0; i < FOLDER_LIST.length; i++) {
-
-        let folder = FOLDER_LIST[i].id;
-        photos_thumbnail_container_per_folder = document.getElementById(folder);
-        getPhotoDataPerFolder(folder);
-
         foldernames.push(FOLDER_LIST[i].id);
     }
 }
@@ -83,11 +50,7 @@ function getPhotoDataPerFolder(foldername) {
         // let photo_data = new PhotoData(photo_id, photo_src, photo_alt, photo_description, photo_copyright, photo_nr);
         // let Photo = [{photoId:photo_data.photoId}, {photoSrc:photo_data.photoSrc}, {photoAlt:photo_data.photoAlt}, {photoDescription:photo_data.photoDescription}, {photoCopyright:photo_data.photoCopyright}, {photoNr:photo_data.photoNr}];
         // photos_array.push(Photo);
-
-        photos_thumbnail_container_per_folder.innerHTML += displayPhotoThumbnail(photo_id, photo_src, photo_alt, photo_description, photo_copyright, photo_nr);
     }
-    
-    
 }
 
 /**
@@ -102,20 +65,49 @@ function getPhotoDataPerFolder(foldername) {
 //     this.photoNr = photo_nr;
 // }
 
-function displayPhotoThumbnail(photo_id, photo_src, photo_alt, photo_description, photo_copyright, photo_nr) {
+function renderPhotoThumbnail() {
+    let photos_thumbnail_container_per_folder = "";
+    for (let i = 0; i < photos_array.length; i++) {
+        photos_thumbnail_container_per_folder = document.getElementById(photos_array[i][0]['Foldername']); 
+        photos_thumbnail_container_per_folder.innerHTML += 
+            displayPhotoThumbnail(
+                photos_array[i][1]['photoId'], 
+                photos_array[i][2]['photoSrc'], 
+                photos_array[i][3]['photoAlt'], 
+                photos_array[i][4]['photoDescription'], 
+                photos_array[i][5]['photoCopyright'], 
+                photos_array[i][6]['photoNr']); 
+    }
+}
+
+function displayPhotoThumbnail(photoId, photoSrc, photoAlt, photoDescription, photoCopyright, photoNr) {
     return `
-        <img onclick="openDialogPhotoOverlay('${photo_src}', '${photo_alt}', '${photo_description}', '${photo_copyright}', '${photo_nr}')"
+        <img onclick="openDialogPhotoOverlay('${photoSrc}', '${photoAlt}', '${photoDescription}', '${photoCopyright}', '${photoNr}')"
             class="ImagePhotoGallery"
-            id=${photo_id}
-            src=${photo_src}
-            alt=${photo_alt}
+            id=${photoId}
+            src=${photoSrc}
+            alt=${photoAlt}
         />`;
 }
 
-function displayPhotoOverlay(photo_src, photo_alt, photo_description, photo_copyright, photo_nr) {
+function closeDialogPhotoOverlay() {
+    DIALOG_REF.close();
+}
+
+function openDialogPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyright, photoNr) {
+    DIALOG_REF.showModal();
+    renderPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyright, photoNr);
+}
+
+function renderPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyright, photoNr) {
+    photo_overlay.innerHTML = "";
+    photo_overlay.innerHTML = displayPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyright, photoNr);
+}
+
+function displayPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyright, photoNr) {
     return `
         <header>
-            <h3>${photo_description}</h3>
+            <h3>${photoDescription}</h3>
             <button onclick="closeDialogPhotoOverlay()">
                 <img 
                     src="./img/icon-close-48-dark.svg" 
@@ -124,21 +116,27 @@ function displayPhotoOverlay(photo_src, photo_alt, photo_description, photo_copy
         </header>
         <figure>
             <img class="ImagePhotoOverlay"
-                src=${photo_src}
-                alt=${photo_alt}
-            <figcaption><span class="figcaption">${photo_copyright}</span></figcaption>
+                src=${photoSrc}
+                alt=${photoAlt}
+            <figcaption><span class="figcaption">${photoCopyright}</span></figcaption>
         </figure>
         <footer>
-            <button class="button-reverse">
+            <button oncklick="renderPreviousPhotoOverlay"
+                class="button-reverse">
                 <img 
                     src="./img/icon-arrow-back-48-dark.svg" 
                     alt="Pfeil-Symbol nach links, um zum vorherigen Bild zu gelangen."/>
             </button>
-            <span>${photo_nr}</span>
-            <button>
+            <span>${photoNr}</span>
+            <button oncklick="renderNextPhotoOverlay">
                 <img 
                     src="./img/icon-arrow-forward-48-dark.svg" 
                     alt="Pfeil-Symbol nach rechts, um zum nächsten Bild zu gelangen."/>
             </button>
         </footer>`;
+}
+
+function renderNextPhotoOverlay() {
+    
+    photo_overlay.innerHTML = displayPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyright, photoNr);
 }
