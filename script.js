@@ -1,12 +1,32 @@
 const DIALOG_REF = document.getElementById("#DialogPhotoOverlay");
-const FOLDER_LIST = document.getElementsByClassName("ImageContainerPhotoGallery");
-let photos_thumbnail = "";
-let photos_displayed = [];
-let photo_overlay = document.getElementById("#PhotoOverlay");
+let foldernames = [];
+
+let photos_thumbnail_container_per_folder = "";
+let photos_array = [];
+
+/** 
+ * Initialer Aufruf beim Starten der Seite
+ */
+function init() {
+    console.log(foldernames);
+    console.log(photos_array);
+
+    getPhotofoldername();
+    getAllPhotoData();
+    // renderPhotoThumbnail();
+
+    
+    
+}
 
 function openDialogPhotoOverlay(photo_src, photo_alt, photo_description, photo_copyright, photo_nr) {
     DIALOG_REF.showModal();
+    renderPhotoOverlay(photo_src, photo_alt, photo_description, photo_copyright, photo_nr);
+}
 
+function renderPhotoOverlay(photo_src, photo_alt, photo_description, photo_copyright, photo_nr) {
+    let photo_overlay = document.getElementById("#PhotoOverlay");
+    photo_overlay.innerHTML = "";
     photo_overlay.innerHTML = displayPhotoOverlay(photo_src, photo_alt, photo_description, photo_copyright, photo_nr);
 }
 
@@ -14,23 +34,36 @@ function closeDialogPhotoOverlay() {
     DIALOG_REF.close();
 }
 
-function initDisplayPhotoGallery() {
-    getFolder();
-    console.log(photos_thumbnail);
-    
-    console.log(photos_displayed);
-    
-}
+// function renderPhotoThumbnail(params) {
+//     for (let i = 0; i < photos_array.length; i++) {
 
-function getFolder() {
+//         const element = array[i];
+        
+//     }
+// }
+
+/** 
+ * Photofoldername über ID erhalten
+ * Ich glaube 
+ */
+function getPhotofoldername() {
+    const FOLDER_LIST = document.getElementsByClassName("ImageContainerPhotoGallery");
     for (let i = 0; i < FOLDER_LIST.length; i++) {
+
         let folder = FOLDER_LIST[i].id;
-        photos_thumbnail = document.getElementById(folder);
-        getPhoto(folder);
+        photos_thumbnail_container_per_folder = document.getElementById(folder);
+        getPhotoDataPerFolder(folder);
+
+        foldernames.push(FOLDER_LIST[i].id);
+    }
+}
+function getAllPhotoData() {
+    for (let i = 0; i < foldernames.length; i++) {
+        getPhotoDataPerFolder(foldernames[i]);  
     }
 }
 
-function getPhoto(foldername) {
+function getPhotoDataPerFolder(foldername) {
     let photos_per_folder = All_PHOTOS[foldername];
 
     for (let i = 0; i < photos_per_folder.length; i++) {
@@ -40,27 +73,34 @@ function getPhoto(foldername) {
         let photo_description = photos_per_folder[i].description;
         let photo_copyright = "&#169 " + photos_per_folder[i].copyright;
         let photo_nr = photos_per_folder[i].folder + ":<br>" + (i+1) + " von " + photos_per_folder.length;
-        
-        let photo_value = new PhotoData(photo_id, photo_src, photo_alt, photo_description, photo_copyright, photo_nr);
-        
-        let Photo = [{photoId:photo_value.photoId}, {photoSrc:photo_value.photoSrc}];
-        // console.log(Photo);
-        photos_displayed.push(Photo);
 
-        photos_thumbnail.innerHTML += displayPhotoThumbnail(photo_id, photo_src, photo_alt, photo_description, photo_copyright, photo_nr);
+        let photo_data =[{Foldername:foldername}, {photoId:photo_id}, {photoSrc:photo_src}, {photoAlt:photo_alt}, {photoDescription:photo_description}, {photoCopyright:photo_copyright}, {photoNr:photo_nr}];
+        photos_array.push(photo_data);
+
+        /**
+         * Variante über Object Constructor Function:
+         */
+        // let photo_data = new PhotoData(photo_id, photo_src, photo_alt, photo_description, photo_copyright, photo_nr);
+        // let Photo = [{photoId:photo_data.photoId}, {photoSrc:photo_data.photoSrc}, {photoAlt:photo_data.photoAlt}, {photoDescription:photo_data.photoDescription}, {photoCopyright:photo_data.photoCopyright}, {photoNr:photo_data.photoNr}];
+        // photos_array.push(Photo);
+
+        photos_thumbnail_container_per_folder.innerHTML += displayPhotoThumbnail(photo_id, photo_src, photo_alt, photo_description, photo_copyright, photo_nr);
     }
     
     
 }
 
-function PhotoData(photo_id, photo_src, photo_alt, photo_description, photo_copyright, photo_nr) {
-    this.photoId = photo_id;
-    this.photoSrc = photo_src;
-    this.photoAlt = photo_alt;
-    this.photoDescription = photo_description;
-    this.photoCopyright = photo_copyright;
-    this.photoNr = photo_nr;
-}
+/**
+ * Variante über Object Constructor Function:
+ */
+// function PhotoData(photo_id, photo_src, photo_alt, photo_description, photo_copyright, photo_nr) {
+//     this.photoId = photo_id;
+//     this.photoSrc = photo_src;
+//     this.photoAlt = photo_alt;
+//     this.photoDescription = photo_description;
+//     this.photoCopyright = photo_copyright;
+//     this.photoNr = photo_nr;
+// }
 
 function displayPhotoThumbnail(photo_id, photo_src, photo_alt, photo_description, photo_copyright, photo_nr) {
     return `
