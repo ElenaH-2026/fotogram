@@ -41,7 +41,7 @@ function getPhotoDataPerFolder(foldername) {
         let photo_copyright = "&#169 " + photos_per_folder[i].copyright;
         let photo_nr = photos_per_folder[i].folder + ":<br>" + (i+1) + " von " + photos_per_folder.length;
 
-        let photo_data =[{Foldername:foldername}, {photoId:photo_id}, {photoSrc:photo_src}, {photoAlt:photo_alt}, {photoDescription:photo_description}, {photoCopyright:photo_copyright}, {photoNr:photo_nr}];
+        let photo_data =[{photoIndex:0}, {Foldername:foldername}, {photoId:photo_id}, {photoSrc:photo_src}, {photoAlt:photo_alt}, {photoDescription:photo_description}, {photoCopyright:photo_copyright}, {photoNr:photo_nr}];
         photos_array.push(photo_data);
 
         /**
@@ -68,21 +68,24 @@ function getPhotoDataPerFolder(foldername) {
 function renderPhotoThumbnail() {
     let photos_thumbnail_container_per_folder = "";
     for (let i = 0; i < photos_array.length; i++) {
-        photos_thumbnail_container_per_folder = document.getElementById(photos_array[i][0]['Foldername']); 
+        photos_array[i][0]['photoIndex'] += i, 
+        photos_thumbnail_container_per_folder = document.getElementById(photos_array[i][1]['Foldername']); 
         photos_thumbnail_container_per_folder.innerHTML += 
             displayPhotoThumbnail(
-                photos_array[i][1]['photoId'], 
-                photos_array[i][2]['photoSrc'], 
-                photos_array[i][3]['photoAlt'], 
-                photos_array[i][4]['photoDescription'], 
-                photos_array[i][5]['photoCopyright'], 
-                photos_array[i][6]['photoNr']); 
+                photos_array[i][0]['photoIndex'], 
+                photos_array[i][2]['photoId'], 
+                photos_array[i][3]['photoSrc'], 
+                photos_array[i][4]['photoAlt'], 
+                // photos_array[i][5]['photoDescription'], 
+                // photos_array[i][6]['photoCopyright'], 
+                // photos_array[i][7]['photoNr']
+            ); 
     }
 }
 
-function displayPhotoThumbnail(photoId, photoSrc, photoAlt, photoDescription, photoCopyright, photoNr) {
+function displayPhotoThumbnail(photoIndex, photoId, photoSrc, photoAlt) {
     return `
-        <img onclick="openDialogPhotoOverlay('${photoSrc}', '${photoAlt}', '${photoDescription}', '${photoCopyright}', '${photoNr}')"
+        <img onclick="openDialogPhotoOverlay('${photoIndex}')"
             class="ImagePhotoGallery"
             id=${photoId}
             src=${photoSrc}
@@ -94,17 +97,24 @@ function closeDialogPhotoOverlay() {
     DIALOG_REF.close();
 }
 
-function openDialogPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyright, photoNr) {
+function openDialogPhotoOverlay(photoIndex) {
     DIALOG_REF.showModal();
-    renderPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyright, photoNr);
+    renderPhotoOverlay(photoIndex);
 }
 
-function renderPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyright, photoNr) {
+function renderPhotoOverlay(photoIndex) {
     photo_overlay.innerHTML = "";
-    photo_overlay.innerHTML = displayPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyright, photoNr);
+    photo_overlay.innerHTML = displayPhotoOverlay(
+        photos_array[photoIndex][0]['photoIndex'],
+        photos_array[photoIndex][3]['photoSrc'],
+        photos_array[photoIndex][4]['photoAlt'], 
+        photos_array[photoIndex][5]['photoDescription'], 
+        photos_array[photoIndex][6]['photoCopyright'], 
+        photos_array[photoIndex][7]['photoNr']
+    ); 
 }
 
-function displayPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyright, photoNr) {
+function displayPhotoOverlay(currentPhotoIndex, photoSrc, photoAlt, photoDescription, photoCopyright, photoNr) {
     return `
         <header>
             <h3>${photoDescription}</h3>
@@ -121,14 +131,14 @@ function displayPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyrigh
             <figcaption><span class="figcaption">${photoCopyright}</span></figcaption>
         </figure>
         <footer>
-            <button oncklick="renderPreviousPhotoOverlay"
+            <button oncklick="renderPreviousPhotoOverlay(${currentPhotoIndex})"
                 class="button-reverse">
                 <img 
                     src="./img/icon-arrow-back-48-dark.svg" 
                     alt="Pfeil-Symbol nach links, um zum vorherigen Bild zu gelangen."/>
             </button>
             <span>${photoNr}</span>
-            <button oncklick="renderNextPhotoOverlay">
+            <button oncklick="renderNextPhotoOverlay(${currentPhotoIndex})">
                 <img 
                     src="./img/icon-arrow-forward-48-dark.svg" 
                     alt="Pfeil-Symbol nach rechts, um zum nächsten Bild zu gelangen."/>
@@ -136,7 +146,12 @@ function displayPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyrigh
         </footer>`;
 }
 
-function renderNextPhotoOverlay() {
-    
-    photo_overlay.innerHTML = displayPhotoOverlay(photoSrc, photoAlt, photoDescription, photoCopyright, photoNr);
+function renderPreviousPhotoOverlay(currentPhotoIndex) {
+    let previousPhotoIndex = currentPhotoIndex - 1;
+    renderPhotoOverlay(previousPhotoIndex);
+}
+
+function renderNextPhotoOverlay(currentPhotoIndex) {
+    let nextPhotoIndex = currentPhotoIndex + 1;
+    renderPhotoOverlay(nextPhotoIndex);
 }
