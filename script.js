@@ -75,22 +75,9 @@ function renderPhotoThumbnail() {
                 photos_array[i][0]['photoIndex'], 
                 photos_array[i][2]['photoId'], 
                 photos_array[i][3]['photoSrc'], 
-                photos_array[i][4]['photoAlt'], 
-                // photos_array[i][5]['photoDescription'], 
-                // photos_array[i][6]['photoCopyright'], 
-                // photos_array[i][7]['photoNr']
+                photos_array[i][4]['photoAlt']
             ); 
     }
-}
-
-function displayPhotoThumbnail(photoIndex, photoId, photoSrc, photoAlt) {
-    return `
-        <img onclick="openDialogPhotoOverlay('${photoIndex}')"
-            class="ImagePhotoGallery"
-            id=${photoId}
-            src=${photoSrc}
-            alt=${photoAlt}
-        />`;
 }
 
 function closeDialogPhotoOverlay() {
@@ -114,44 +101,12 @@ function renderPhotoOverlay(photoIndex) {
     ); 
 }
 
-function displayPhotoOverlay(currentPhotoIndex, photoSrc, photoAlt, photoDescription, photoCopyright, photoNr) {
-    return `
-        <header>
-            <h3>${photoDescription}</h3>
-            <button onclick="closeDialogPhotoOverlay()">
-                <img 
-                    src="./img/icon-close-48-dark.svg" 
-                    alt="X-Symbol zum Schließen des Dialogfensters"/>
-            </button>
-        </header>
-        <figure>
-            <img class="ImagePhotoOverlay"
-                src=${photoSrc}
-                alt=${photoAlt}
-            <figcaption><span class="figcaption">${photoCopyright}</span></figcaption>
-        </figure>
-        <footer>
-            <button oncklick="renderPreviousPhotoOverlay(${currentPhotoIndex})"
-                class="button-reverse">
-                <img 
-                    src="./img/icon-arrow-back-48-dark.svg" 
-                    alt="Pfeil-Symbol nach links, um zum vorherigen Bild zu gelangen."/>
-            </button>
-            <span>${photoNr}</span>
-            <button oncklick="renderNextPhotoOverlay(${currentPhotoIndex})">
-                <img 
-                    src="./img/icon-arrow-forward-48-dark.svg" 
-                    alt="Pfeil-Symbol nach rechts, um zum nächsten Bild zu gelangen."/>
-            </button>
-        </footer>`;
-}
-
 function renderPreviousPhotoOverlay(currentPhotoIndex) {
-    let previousPhotoIndex = currentPhotoIndex - 1;
+    let previousPhotoIndex = (currentPhotoIndex == 0) ? (photos_array.length - 1) : (currentPhotoIndex - 1);
     renderPhotoOverlay(previousPhotoIndex);
 }
 
 function renderNextPhotoOverlay(currentPhotoIndex) {
-    let nextPhotoIndex = currentPhotoIndex + 1;
+    let nextPhotoIndex = (currentPhotoIndex == (photos_array.length - 1)) ? 0 : (currentPhotoIndex + 1);
     renderPhotoOverlay(nextPhotoIndex);
 }
