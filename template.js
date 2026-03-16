@@ -1,7 +1,9 @@
 function displayPhotoThumbnail(photoIndex, photoId, photoSrc, photoAlt) {
     return `
-        <img onclick="openDialogPhotoOverlay('${photoIndex}')"
-            class="ImagePhotoGallery"
+        <img onclick="openDialogPhotoOverlay('${photoIndex}')" 
+            onkeyup="pressKeyEnter(event, '${photoIndex}')" 
+            class="ImagePhotoGallery" 
+            tabindex="0"
             id=${photoId}
             src=${photoSrc}
             alt=${photoAlt}
@@ -24,14 +26,16 @@ function displayPhotoOverlay(currentPhotoIndex, photoSrc, photoAlt, photoDescrip
                 alt=${photoAlt}
             <figcaption><span class="figcaption">${photoCopyright}</span></figcaption>
         </figure>
-        <footer>
+        <footer id="#DialogFooter" 
+            onkeyup="pressKeyArrow(event, ${currentPhotoIndex})" 
+            tabindex="-1">
             <button onclick="renderPreviousPhotoOverlay(${currentPhotoIndex})"
-                class="button-reverse">
+                class="ButtonReverse">
                 <img 
                     src="./img/icon-arrow-back-48-dark.svg" 
                     alt="Pfeil-Symbol nach links, um zum vorherigen Bild zu gelangen."/>
             </button>
-            <span>${photoNr}</span>
+            <span class="Width135">${photoNr}</span>
             <button onclick="renderNextPhotoOverlay(${currentPhotoIndex})">
                 <img 
                     src="./img/icon-arrow-forward-48-dark.svg" 

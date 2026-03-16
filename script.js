@@ -98,7 +98,8 @@ function renderPhotoOverlay(photoIndex) {
         photos_array[photoIndex][5]['photoDescription'], 
         photos_array[photoIndex][6]['photoCopyright'], 
         photos_array[photoIndex][7]['photoNr']
-    ); 
+    );
+    setFocusOnDialogFooter();
 }
 
 function renderPreviousPhotoOverlay(currentPhotoIndex) {
@@ -109,4 +110,25 @@ function renderPreviousPhotoOverlay(currentPhotoIndex) {
 function renderNextPhotoOverlay(currentPhotoIndex) {
     let nextPhotoIndex = (currentPhotoIndex == (photos_array.length - 1)) ? 0 : (currentPhotoIndex + 1);
     renderPhotoOverlay(nextPhotoIndex);
+}
+
+function pressKeyEnter(event, photoIndex) {
+    let key = event.key;
+    if (key == "Enter" || key == " ") {
+        openDialogPhotoOverlay(photoIndex);
+    }
+}
+
+function pressKeyArrow(event, photoIndex) {
+    let key = event.key;
+    if (key == "ArrowLeft") {
+        renderPreviousPhotoOverlay(photoIndex)
+    } else if (key == "ArrowRight") {
+        renderNextPhotoOverlay(photoIndex)
+    };
+}
+
+function setFocusOnDialogFooter() {
+    const FOCUS = document.getElementById("#DialogFooter");
+    FOCUS.focus();
 }
