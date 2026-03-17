@@ -7,9 +7,8 @@ let photo_overlay = document.getElementById("#PhotoOverlay");
  * Initialer Aufruf beim Starten der Seite
  */
 function init() {
-    console.log(foldernames);
-    console.log(photos_array);
-
+    // console.log(foldernames);
+    // console.log(photos_array);
     getPhotofoldername();
     getAllPhotoData();
     renderPhotoThumbnail();
