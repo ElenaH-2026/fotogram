@@ -1,6 +1,6 @@
 /* folder:*/
 const ELBA = "Elba";
-const NZ_FIJI = "Neuseeland und Fiji";
+const NZ_FIJI = "NZ und Fiji";
 const USA_HAWAII = "USA und Hawaii";
 const OTHER = "Weitere Orte";
 
