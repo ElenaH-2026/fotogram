@@ -72,7 +72,7 @@ a {
     text-decoration: none;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-weight: 500;
     text-align: center;
     margin: 0;
@@ -80,7 +80,6 @@ h1, h2, h3 {
 
 h1 {
     font-size: 32px;
-    
     padding: 24px 0;
 }
 
@@ -126,16 +125,6 @@ button {
 button img {
     height: 24px;
 }
-
-/* class below only needed, if icons imported with google-fonts */
-/* .material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
-} */
-
 
 /* css -> header and footer */
 
@@ -204,7 +193,7 @@ main {
     align-items: center;
     flex: 1;
     padding-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 100px;
 }
 
 .ContainerH1 {
@@ -242,51 +231,29 @@ main {
 
 /* css -> overlay */
 
-/* dialog:-internal-dialog-in-top-layer::backdrop {
-    position: fixed;
-    background-color: none;
-    inset: 0px;
-    } */
-
 dialog {
     background-color: var(--color-dark);
     color: var(--color-font);
     justify-self: center;
+    align-self: center;
+    margin: 0;
     border: 1px solid var(--color-light);
     border-radius: var(--border-radius-big);
     filter: drop-shadow(var(--shadow));
     padding: 0;
-
-    /* new Oliver: */
-    /* max-width: 90vw; */
-    /* max-height: 90vh; */
-    /* overflow: hidden; */
-
-    /* new Elena: */
-    margin: 0;
-    align-self: center;
-    height: calc(100% - 110px);
     width: 90%;
+    height: calc(100% - 110px);
 }
 
 .ContainerDialog {
     display: flex;
     flex-direction: column;
-    height: 100%;
-
-    /* new Oliver: */
-    /* overflow: hidden; */
-
-    /* new Elena: */
     align-items: center;
+    height: 100%;
 }
 
 dialog header {
     align-items: center;
-    /* new Oliver: */
-    /* flex-shrink: 0; */
-
-    /* new Elena: */
     width: var(--dialog-spacing);
 }
 
@@ -298,43 +265,19 @@ dialog footer {
     align-items: center;
     text-align: center;
     gap: 80px;
-
-    /* new Oliver: */
-    /* flex-shrink: 0; */
-
-    /* new Elena: */
     width: var(--dialog-spacing);
 }
 
-/* class below is not necessary, when section-tag in dialog is deleted. */
-.SectionPhotoOverlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-
-    /* new Oliver: */
-    /* overflow: hidden; */
-    min-height: 0;
-}
 
 figure {
     display: flex;
     flex-direction: column;
-    margin: 0;
-
-    /* deleted Oliver: */
-    /* max-width: 100%; */
-    /* max-height: 100%; */
-    
-    /* new Oliver: */
     justify-content: center;
     align-items: center;
-    width: 100%;
-    /* height: 100%; */
-    min-height: 0;
-
     flex: 1;
+    margin: 0;
+    width: 100%;
+    min-height: 0;
 }
 
 .figcaption {
@@ -342,23 +285,11 @@ figure {
 }
 
 .ImagePhotoOverlay {
+    margin-bottom: 8px;
     border-radius: var(--border-radius-small);
     filter: drop-shadow(var(--shadow));
-    /* width: auto; */
-    /* height: auto; */
-    /* max-width: 100%; */
-
-    /* deleted Oliver: */
-    /* padding-bottom: 8px; */
-    /* max-height: 100%; */
-
-    /* new Oliver: */
-    margin-bottom: 8px;
-    max-height: calc(100% - 50px);
-    /* object-fit: contain; */
-
-    /* new Elena: */
     max-width: var(--dialog-spacing);
+    max-height: calc(100% - 50px); 
 }
 
 @media (max-width: 970px) {

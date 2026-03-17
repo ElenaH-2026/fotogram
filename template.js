@@ -12,7 +12,7 @@ function displayPhotoThumbnail(photoIndex, photoId, photoSrc, photoAlt) {
 
 function displayPhotoOverlay(currentPhotoIndex, photoSrc, photoAlt, photoDescription, photoCopyright, photoNr) {
     return `
-        <header>
+        <header role="banner">
             <h3>${photoDescription}</h3>
             <button onclick="closeDialogPhotoOverlay()">
                 <img 
@@ -20,11 +20,13 @@ function displayPhotoOverlay(currentPhotoIndex, photoSrc, photoAlt, photoDescrip
                     alt="X-Symbol zum Schließen des Dialogfensters"/>
             </button>
         </header>
-        <figure>
+        <figure role="main">
             <img class="ImagePhotoOverlay"
                 src=${photoSrc}
                 alt=${photoAlt}
-            <figcaption><span class="figcaption">${photoCopyright}</span></figcaption>
+            <figcaption role="contentinfo">
+                <small class="figcaption">${photoCopyright}</small>
+            </figcaption>
         </figure>
         <footer id="#DialogFooter" 
             onkeyup="pressKeyArrow(event, ${currentPhotoIndex})" 
