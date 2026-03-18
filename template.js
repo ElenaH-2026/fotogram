@@ -1,6 +1,7 @@
 function displayPhotoThumbnail(photoIndex, photoId, photoSrc, photoAlt) {
     return `
-        <img onclick="openDialogPhotoOverlay('${photoIndex}')" 
+        <img role="button" 
+            onclick="openDialogPhotoOverlay('${photoIndex}')" 
             onkeyup="pressKeyEnter(event, '${photoIndex}')" 
             class="ImagePhotoGallery" 
             tabindex="0"

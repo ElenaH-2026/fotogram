@@ -26,11 +26,15 @@ p {
     margin-bottom: 32px;
 }
 
-main a {
-    text-shadow: var(--shadow);
-}
-
 ul {
     list-style-type: none;
 }
 
+main a {
+    font-weight: 500;
+    color: var(--color-light);  
+}
+
+main a:active {
+    color: var(--color-font);
+}

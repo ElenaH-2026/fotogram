@@ -28,8 +28,10 @@ button:focus-visible {
 
 a:active,
 button:active {
-    filter: drop-shadow(var(--shadow-big)); 
+    font-weight: 500;
     color: var(--color-dark);
+    filter: drop-shadow(var(--shadow-big)); 
+    
 }
 
 .ImagePhotoGallery:hover,
@@ -49,8 +51,9 @@ html {
 }
 
 body {
-    font-family: "Barlow", sans-serif;
     background-color: var(--color-dark);
+    font-family: "Barlow", sans-serif;
+    font-weight: 300;
     color: var(--color-font);
     display: flex;
     flex-direction: column;
