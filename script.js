@@ -7,8 +7,6 @@ let photo_overlay = document.getElementById("#PhotoOverlay");
  * Initialer Aufruf beim Starten der Seite
  */
 function init() {
-    // console.log(foldernames);
-    // console.log(photos_array);
     getPhotofoldername();
     getAllPhotoData();
     renderPhotoThumbnail();
@@ -42,27 +40,8 @@ function getPhotoDataPerFolder(foldername) {
 
         let photo_data =[{photoIndex:0}, {Foldername:foldername}, {photoId:photo_id}, {photoSrc:photo_src}, {photoAlt:photo_alt}, {photoDescription:photo_description}, {photoCopyright:photo_copyright}, {photoNr:photo_nr}];
         photos_array.push(photo_data);
-
-        /**
-         * Variante über Object Constructor Function:
-         */
-        // let photo_data = new PhotoData(photo_id, photo_src, photo_alt, photo_description, photo_copyright, photo_nr);
-        // let Photo = [{photoId:photo_data.photoId}, {photoSrc:photo_data.photoSrc}, {photoAlt:photo_data.photoAlt}, {photoDescription:photo_data.photoDescription}, {photoCopyright:photo_data.photoCopyright}, {photoNr:photo_data.photoNr}];
-        // photos_array.push(Photo);
     }
 }
-
-/**
- * Variante über Object Constructor Function:
- */
-// function PhotoData(photo_id, photo_src, photo_alt, photo_description, photo_copyright, photo_nr) {
-//     this.photoId = photo_id;
-//     this.photoSrc = photo_src;
-//     this.photoAlt = photo_alt;
-//     this.photoDescription = photo_description;
-//     this.photoCopyright = photo_copyright;
-//     this.photoNr = photo_nr;
-// }
 
 function renderPhotoThumbnail() {
     let photos_thumbnail_container_per_folder = "";

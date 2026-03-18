@@ -34,7 +34,7 @@ const All_PHOTOS = {
         {"folder":NZ_FIJI, "year":2024, "copyright":MICHI, "description":"Neuseeland - Tauhara Forest", "filename":"nz-20240306-tauhara-forest.jpg"},
         {"folder":NZ_FIJI, "year":2024, "copyright":MICHI, "description":"Neuseeland - Taupiri - The Last Kauri Tree", "filename":"nz-20240308-taupiri-the-last-kauri-tree.jpg"},
         {"folder":NZ_FIJI, "year":2024, "copyright":MICHI, "description":"Neuseeland - Ninety Mile Beach", "filename":"nz-20240312-ninety-mile-beach.jpg"},
-        {"folder":NZ_FIJI, "year":2024, "copyright":MICHI, "description":"Neuseeland - Ninety Mile Beach", "filename":"nz-20240312-ninety-mile-beach-panorama.jpg"},
+        {"folder":NZ_FIJI, "year":2024, "copyright":MICHI, "description":"Neuseeland - Ninety Mile Beach Panorama", "filename":"nz-20240312-ninety-mile-beach-panorama.jpg"},
         {"folder":NZ_FIJI, "year":2024, "copyright":MICHI, "description":"Neuseeland - Koutu Point Sonnenuntergang", "filename":"nz-20240314-koutu-point-sonnenuntergang.jpg"},
         {"folder":NZ_FIJI, "year":2024, "copyright":MICHI, "description":"Neuseeland - Nacht am Hot Water Beach", "filename":"nz-20240316-hot-water-beach.jpg"},
         {"folder":NZ_FIJI, "year":2024, "copyright":MICHI, "description":"Neuseeland - Rotorua", "filename":"nz-20240319-rotorua.jpg"},

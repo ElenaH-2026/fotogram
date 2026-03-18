@@ -5,9 +5,9 @@ function displayPhotoThumbnail(photoIndex, photoId, photoSrc, photoAlt) {
             onkeyup="pressKeyEnter(event, '${photoIndex}')" 
             class="ImagePhotoGallery" 
             tabindex="0"
-            id=${photoId}
-            src=${photoSrc}
-            alt=${photoAlt}
+            id="${photoId}"
+            src="${photoSrc}"
+            alt="${photoAlt}"
         />`;
 }
 
@@ -23,8 +23,8 @@ function displayPhotoOverlay(currentPhotoIndex, photoSrc, photoAlt, photoDescrip
         </header>
         <figure role="main">
             <img class="ImagePhotoOverlay"
-                src=${photoSrc}
-                alt=${photoAlt}
+                src="${photoSrc}"
+                alt="${photoAlt}"
             <figcaption role="contentinfo">
                 <small class="figcaption">${photoCopyright}</small>
             </figcaption>
