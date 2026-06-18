@@ -32,7 +32,7 @@ function getPhotoDataPerFolder(foldername) {
 
     for (let i = 0; i < photos_per_folder.length; i++) {
         let photo_id = foldername + "-" + (i+1);
-        let photo_src = "./photos/" + foldername + "/" + photos_per_folder[i].filename;
+        let photo_src = "./assets/photos/" + foldername + "/" + photos_per_folder[i].filename;
         let photo_alt = "Foto: " + photos_per_folder[i].description;
         let photo_description = photos_per_folder[i].description;
         let photo_copyright = "&#169 " + photos_per_folder[i].copyright;

@@ -17,7 +17,7 @@ function displayPhotoOverlay(currentPhotoIndex, photoSrc, photoAlt, photoDescrip
             <h3>${photoDescription}</h3>
             <button onclick="closeDialogPhotoOverlay()">
                 <img 
-                    src="./img/icon-close-48-dark.svg" 
+                    src="./assets/icons/icon-close-48-dark.svg" 
                     alt="X-Symbol zum Schließen des Dialogfensters"/>
             </button>
         </header>
@@ -35,13 +35,13 @@ function displayPhotoOverlay(currentPhotoIndex, photoSrc, photoAlt, photoDescrip
             <button onclick="renderPreviousPhotoOverlay(${currentPhotoIndex})"
                 class="ButtonReverse">
                 <img 
-                    src="./img/icon-arrow-back-48-dark.svg" 
+                    src="./assets/icons/icon-arrow-back-48-dark.svg" 
                     alt="Pfeil-Symbol nach links, um zum vorherigen Bild zu gelangen."/>
             </button>
             <span class="Width135">${photoNr}</span>
             <button onclick="renderNextPhotoOverlay(${currentPhotoIndex})">
                 <img 
-                    src="./img/icon-arrow-forward-48-dark.svg" 
+                    src="./assets/icons/icon-arrow-forward-48-dark.svg" 
                     alt="Pfeil-Symbol nach rechts, um zum nächsten Bild zu gelangen."/>
             </button>
         </footer>`;
