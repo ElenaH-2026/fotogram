@@ -11,8 +11,8 @@
 </div>
 
 <div align="center">
-       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-original.svg" height="40" alt="trello logo" />
-         <img width="12" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-original.svg" height="40" alt="trello logo" />
+        <img width="12" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo"  />
         <img width="12" />
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo" />
@@ -43,6 +43,12 @@ Mein Fotogram ist eine vollständig responsive und performant optimierte Fotogal
 
 </div>
 
+<div align="center">    
+        
+📊 Projektmanagement: Trello-Board mit Kanban-Prozess  
+        
+</div>
+
 <div align="center">
       
 📧 Email: [hiener.elena@web.de](mailto:hiener.elena@web.de)
@@ -51,12 +57,6 @@ Mein Fotogram ist eine vollständig responsive und performant optimierte Fotogal
 <img width="12" />
 🐙 GitHub: [ElenaH-2026](https://github.com/ElenaH-2026)
 
-</div>
-
-<div align="center">
-        
-📊 Projektmanagement: Trello-Board mit Kanban-Prozess
-        
 </div>
 
 
