@@ -29,4 +29,4 @@ Urheberrechtliche Bestimmungen:
 ---
 
 ## 3. Rechtlicher Hinweis (Disclaimer)
-Dieses Projekt ist ein reines Übungsprojekt und ist zu Lernzwecken im Zuge einer Weiterbildung bei der Developer Akademie entstanden.<br>Weitere rechtliche Angaben findest du im offiziellen Impressum und der Datenschutzerklärung des Projekts.
+Dieses Projekt ist ein reines Übungsprojekt und ist zu Lernzwecken im Zuge meiner Weiterbildung bei der Developer Akademie entstanden.<br>Weitere rechtliche Angaben findest du im offiziellen Impressum und der Datenschutzerklärung des Projekts.
