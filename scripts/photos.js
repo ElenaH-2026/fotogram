@@ -8,8 +8,6 @@ const OTHER = "Weitere Orte";
 const MICHI = "Michael Hiener";
 const ELENA = "Elena Hiener";
 
-/* Fotos komprimieren: https://www.irfanview.com/*/
-
 /* Key must be identical to foldername AND container-id !!*/
 
 const All_PHOTOS = {
