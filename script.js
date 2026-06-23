@@ -35,7 +35,7 @@ function getPhotoDataPerFolder(foldername) {
         let photo_src = "./assets/photos/" + foldername + "/" + photos_per_folder[i].filename;
         let photo_alt = "Foto: " + photos_per_folder[i].description;
         let photo_description = photos_per_folder[i].description;
-        let photo_copyright = "&#169 " + photos_per_folder[i].copyright;
+        let photo_copyright = "&#169 " + photos_per_folder[i].year + " " + photos_per_folder[i].copyright;
         let photo_nr = photos_per_folder[i].folder + ":<br>" + (i+1) + " von " + photos_per_folder.length;
 
         let photo_data =[{photoIndex:0}, {Foldername:foldername}, {photoId:photo_id}, {photoSrc:photo_src}, {photoAlt:photo_alt}, {photoDescription:photo_description}, {photoCopyright:photo_copyright}, {photoNr:photo_nr}];
