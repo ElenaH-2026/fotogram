@@ -16,7 +16,7 @@ DIE SOFTWARE WIRD OHNE JEDE AUSDRÜCKLICHE ODER IMPLIZIERTE GARANTIE BEREITGESTE
 
 ## 2. Bildrechte & Urheberrecht
 
-Fotos: Copyright (c) 2026 Michael & Elena Hiener
+Fotos: Copyright (c) Michael & Elena Hiener
 
 Urheberrechtliche Bestimmungen:
 1. Alle Rechte vorbehalten:
