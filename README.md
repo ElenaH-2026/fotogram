@@ -1,5 +1,3 @@
-Look at my project: https://elenahiener.developerakademie.net/modul-6_2026-02_fotogram/2026-02_fotogram/index.html
-
 # ![Fotogram Logo](/assets/icons/logo-fotogram-40px.png) Fotogram - Elenas & Michis Reisefotos
 
 <div align="center">
@@ -65,7 +63,7 @@ Beschreibunng ...
 - 🗂️ [Projektstruktur](#-projektstruktur)
 - 🌟 [Features](#-features)
 
-📝 [Lizenz](#-lizenz-und-urheberrecht)
+📝 [Lizenz und Urheberrecht](#-lizenz-und-urheberrecht)
 
 
 ## ⚙️ Voraussetzungen
@@ -154,11 +152,25 @@ http://<deine_ip>:<live-server-port>
 ```
 
 ### 🌟 Features
+✨
 
 | Feature | Zusatzinformation |
 | --- | --- |
-| ✨ .... | *....* |
-
+| 📐 Figma-konformes Wireframe-Layout | *Das visuelle Design und die strukturelle Anordnung der App basieren exakt auf der vorgegebenen Figma-Design-Richtlinie.* |
+| 📱 Vollständig Responsive | *Die Benutzeroberfläche ist von 320px bis hin zu großen Desktop-Monitoren optimiert, um Reisefotos auch von unterwegs perfekt darzustellen.* |
+| ⚡ Performance- & Ladezeit-Optimierung | *Für ein flüssiges Nutzererlebnis wurden alle Bildmedien komprimiert (maximal 500 KB pro Bild).* |
+| 📸 Dynamische Thumbnail-Galerie | *Alle Fotos und Bildbeschreibungen werden komplett dynamisch über JavaScript gerendert.* |
+| 🛠️ Schnell erweiterbar | *Durch die Speicherung der Foto-Daten als Objekt, ist nur ein einziger neuer Objekt-Eintrag in der photos.js nötig, um der Galerie ein weiteres Foto hinzuzufügen.* |
+| 🏗️ Semantische HTML-Architektur | *Strikter Einsatz nativer, sinnstiftender Tags (`<header>`, `<nav>`, `<main>`, `<section>`) sowie `<figure>` und `<figcaption>` für Fotos.* |
+| ⌨️ Volle Tastatursteuerung | *Maximale Usability: Die gesamte Webapplikation lässt sich komplett barrierefrei über die Pfeiltasten und mit der `Esc`-Taste steuern.* |
+| 🔍 Responsive Detailansicht | *Ein Klick öffnet Bilder in einer großzügigen Lightbox, die den verfügbaren Platz im Viewport für maximale Details optimal ausnutzt.* |
+| ↔️ Fixierte Galerie-Navigation | *Innerhalb der Großansicht sorgen fest positionierte Navigations-Buttons für ein komfortables und nahtloses Vor- und Zurückblättern.* |
+| ✖️ Flexibler Dialog-Verschluss | *Die Großansicht kann wahlweise über einen dedizierten Schließen-Button oder durch einen einfachen Klick auf den Hintergrund beendet werden.* |
+| 🖼️ Barrierefreie Alternativtexte | *Jedes Bildelement (`<img>`) ist mit einem sinnvollen und beschreibenden `alt`-Attribut ausgestattet, um visuelle Inhalte zugänglich zu machen.* |
+| 🏷️ Sprechende Links & Interaktionselemente | *Verzicht auf vage Phrasen wie „Hier klicken“ – alle Buttons und Links beschreiben ihre exakte Aktion oder ihr Ziel klar und verständlich.* |
+| 🎨 Kontraststarke & lesbare Typografie | *Einhaltung barrierefreier Farbkontraste, eine Mindestschriftgröße von 16px für Fließtext sowie direktes visuelles Feedback durch interaktive Hover-Effekte.* |
+| 🛡️ Geprüfte Barrierefreiheit (WCAG) | *Der gesamte Code wurde erfolgreich mit führenden Tools wie Lighthouse, WAVE und dem IBM Equal Access Accessibility Checker auditiert.* |
+| ⚖️ Integrierter Rechtsschutz | *Rechtssichere Einbindung von eigenständigen Seiten für Impressum und Datenschutz mit maßgeschneidertem, zur Hauptseite passendem Stylesheet.* |
 
 ## 📝 Lizenz und Urheberrecht
 
