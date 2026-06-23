@@ -87,8 +87,9 @@ Mein Fotogram ist eine vollständig responsive und performant optimierte Fotogal
 
 ### 💾 Datenquelle / Schnittstelle
 
-Bilder: private Urlaubsfotos © Michael & Elena Hiener (Bilddateien sind nicht öffentlich)
-Bildinformation: als Objekt in photos.js (öffentlich auf GitHub)
+Bilder --> private Urlaubsfotos © 2026 Michael & Elena Hiener (Bilddateien sind nicht öffentlich)
+
+Bildinformationen --> als Objekt in photos.js (öffentlich auf GitHub)
 
 
 ## 🚀 Quickstart
@@ -178,5 +179,6 @@ http://<deine_ip>:<live-server-port>
 > Dieses Projekt ist ein reines Übungsprojekt und ist zu Lernzwecken im Zuge meiner Weiterbildung bei der [Developer Akadamy](https://developerakademie.com) entstanden.
 
 > [!IMPORTANT]
-> Fotos: © Michael & Elena Hiener
+> Fotos: © 2026 Michael & Elena Hiener
+> <br>Die Fotografien in dieser Applikation sind geistiges und privates Eigentum von Michael & Elena Hiener.
 > <br>Details zur Lizenz und den Bildrechten findest du in der [LICENSE.md](https://github.com/ElenaH-2026/fotogram?tab=License-1-ov-file).
