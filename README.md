@@ -186,7 +186,7 @@ http://<deine_ip>:<live-server-port>
 ## 📝 Lizenz und Urheberrecht
 
 > [!NOTE] 
-> Dieses Projekt ist ein reines Übungsprojekt und ist zu Lernzwecken im Zuge meiner Weiterbildung bei der [Developer Akademy](https://developerakademie.com) entstanden.
+> Dieses Projekt ist ein reines Übungsprojekt und ist zu Lernzwecken im Zuge meiner Weiterbildung bei der [Developer Akademie](https://developerakademie.com) entstanden.
 
 > [!IMPORTANT]
 > Fotos: © Michael & Elena Hiener
