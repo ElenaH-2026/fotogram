@@ -18,7 +18,7 @@
 <img/>
 <div align="center">
         
-Beschreibunng ...
+Mein Fotogram ist eine vollständig responsive und performant optimierte Fotogalerie-App, die Bildinhalte und Beschreibungen dynamisch via JavaScript rendert.<br>Das Projekt wurde nach strengen WCAG-Standards entwickelt, um Barrierefreiheit durch Screenreader-Unterstützung und eine lückenlose Tastaturnavigation zu gewährleisten.
 
 </div>
         
@@ -87,7 +87,8 @@ Beschreibunng ...
 
 ### 💾 Datenquelle / Schnittstelle
 
-private Urlaubsfotos
+Bilder: private Urlaubsfotos © Michael & Elena Hiener (Bilddateien sind nicht öffentlich)
+Bildinformation: als Objekt in photos.js (öffentlich auf GitHub)
 
 
 ## 🚀 Quickstart
@@ -152,7 +153,6 @@ http://<deine_ip>:<live-server-port>
 ```
 
 ### 🌟 Features
-✨
 
 | Feature | Zusatzinformation |
 | --- | --- |
