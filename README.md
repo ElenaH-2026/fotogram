@@ -26,7 +26,7 @@ Mein Fotogram ist eine vollständig responsive und performant optimierte Fotogal
 
 </div>
         
-![Screenshot des Pokédex](/assets/screenshots/screenshot-readme.jpg)
+![Screenshot des Fotogram](/assets/screenshots/screenshot-readme.jpg)
 
 
 <div align="center">
