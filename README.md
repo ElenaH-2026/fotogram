@@ -1,4 +1,8 @@
-# ![Fotogram Logo](/assets/icons/logo-fotogram-40px.png) Fotogram - Elenas & Michis Reisefotos
+<div align="center">
+        
+# ![Fotogram Logo](/assets/icons/logo-fotogram-40px.png) Fotogram - Elenas & Michis Reisefotos ![Fotogram Logo](/assets/icons/logo-fotogram-40px.png)
+
+</div>
 
 <div align="center">
         
